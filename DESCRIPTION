@@ -1,0 +1,21 @@
+Package: pkglog
+Type: Package
+Title: Log Files of Loaded Packages
+Version: 0.0.1
+Description: Save lightweight log files of loaded packages. Aims
+    to improve reproducibility without heavy operations such as
+    reinstalling packages.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    sessioninfo (>= 1.0.0)
+Authors@R: 
+    person(given = "Mikko",
+           family = "Marttila",
+           role = c("aut", "cre"),
+           email = "mikmart@mikkomarttila.com")
+RoxygenNote: 6.0.1.9000
+Roxygen: list(markdown = TRUE)
+URL: https://github.com/mikmart/pkglog
+BugReports: https://github.com/mikmart/pkglog/issues
