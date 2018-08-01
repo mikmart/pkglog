@@ -22,5 +22,5 @@ pkglog_read()
 pkglog() 
 
 # write the current log file to disk
-pkglog_write(pkglog())
+pkglog_write()
 ```
