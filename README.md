@@ -5,11 +5,22 @@ improve reproducibility without heavy operations such as reinstalling packages.
 
 ## Usage
 
-Simpy load **pkglog** and a log file of loaded packages called `pkglog.csv` will
-be saved in your working directory when you exit your R session or detach the
-package. The log file is a persistent, time-stamped copy of
-`sessioninfo::package_info()` saved as a csv file..
+**pkglog** works on a log file called `pkglog.csv` in your working directory.
+The log file is a persistent, time-stamped copy of `sessioninfo::package_info()`
+saved as a csv file.
 
 ``` r
 library(pkglog)
+
+# enable automatic logging on exit
+pkglog_enable()
+
+# read an existing log file
+pkglog_read()
+
+# get an up-to-date log including current packages
+pkglog() 
+
+# write the current log file to disk
+pkglog_write(pkglog())
 ```
