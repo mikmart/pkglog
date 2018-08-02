@@ -1,13 +1,3 @@
-pkglog_env <- new.env()
-
-#' Runs at package detach or session exit
-#' @param e pkglog_env passed on exit
-pkglog_exit_hook <- function(e) {
-  if (!pkglog_env$disable) {
-    pkglog_write(pkglog())
-  }
-}
-
 #' Write the current package log to a file
 #' @param x a package log `data.frame` to be written
 #' @param path folder that the log file `pkglog.csv` is written to
@@ -88,11 +78,13 @@ NULL
 #' @describeIn pkglog-toggle Disable logging
 #' @export
 pkglog_disable <- function() {
-  pkglog_env$disable <- TRUE
+  pkglog_opts$disable <- TRUE
 }
 
 #' @describeIn pkglog-toggle Enable logging
 #' @export
 pkglog_enable <- function() {
-  pkglog_env$disable <- FALSE
+  pkglog_opts$disable <- FALSE
 }
+
+pkglog_opts <- new.env()

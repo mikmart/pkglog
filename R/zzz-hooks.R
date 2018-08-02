@@ -1,4 +1,10 @@
 .onAttach <- function(...) {
   pkglog_enable()
-  reg.finalizer(pkglog_env, pkglog_exit_hook, onexit = TRUE)
+
+  # hook that runs on session exit or package unload
+  reg.finalizer(pkglog_opts, function(opts) {
+    if (!opts$disable) {
+      pkglog_write()
+    }
+  }, onexit = TRUE)
 }
